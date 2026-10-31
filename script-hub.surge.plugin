@@ -1,0 +1,15 @@
+#!name=脚本转换
+#!author=小白脸, xream, keywos, ckyb
+#!desc=https://script.hub
+#!category=工具
+#!arguments=Notify:开启通知
+#!arguments-desc=Notify:\nScriptHub通知设置, 可选 开启通知, 关闭通知, 跟随链接
+
+[Script]
+http-request ^https?:\/\/script\.hub\/($|edit\/|reload) script-path=https://cdn.jsdelivr.net/gh/Script-Hub-Org/Script-Hub@main/script-hub.js, timeout=300, tag=Script Hub: 前端, enabled=true
+http-request ^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module) script-path=https://cdn.jsdelivr.net/gh/Script-Hub-Org/Script-Hub@main/Rewrite-Parser.js, timeout=300, argument=Notify={{{Notify}}}, tag=Script Hub: 重写转换, enabled=true
+http-request ^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set script-path=https://cdn.jsdelivr.net/gh/Script-Hub-Org/Script-Hub@main/rule-parser.js, timeout=300, argument=Notify={{{Notify}}}, tag=Script Hub: 规则集转换, enabled=true
+http-request ^https?:\/\/script\.hub\/convert\/ script-path=https://cdn.jsdelivr.net/gh/Script-Hub-Org/Script-Hub@main/script-converter.js, timeout=300, tag=Script Hub: 脚本转换, enabled=true
+
+[MITM]
+hostname = %APPEND% script.hub, *.script.hub

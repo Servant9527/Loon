@@ -1,0 +1,4 @@
+#!name=VPS流量监控
+#!desc=显示19台VPS本月上下行流量, 数据每2分钟更新, SJC主/CN01备
+#!category=面板
+#!author=Muse

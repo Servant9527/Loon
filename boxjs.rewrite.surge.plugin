@@ -1,0 +1,12 @@
+#!name=BoxJs
+#!author=ChavyLeung
+#!desc=http://boxjs.com
+#!homepage=https://docs.boxjs.app/
+#!icon=https://cdn.jsdelivr.net/gh/chavyleung/scripts@master/box/icons/BoxJs.png
+#!category=工具
+
+[Script]
+http-request ^https?:\/\/(.+\.)?boxjs\.(com|net) script-path=https://cdn.jsdelivr.net/gh/chavyleung/scripts@master/box/chavy.boxjs.js, requires-body=true, timeout=120, tag=Rewrite: BoxJs, enabled=true
+
+[MITM]
+hostname = %INSERT% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net

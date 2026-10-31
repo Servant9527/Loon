@@ -1,0 +1,14 @@
+#!name=YouTube（music）增强
+#!category=功能增强
+#!author=Maasea
+#!desc=适用于 Youtube & Youtube Music
+#!arguments=屏蔽上传按钮:true,屏蔽选段按钮:true,屏蔽Shorts按钮:true,字幕翻译语言:zh-CN,启用调试模式:false
+#!arguments-desc=- 屏蔽参数：[true, false] \n- 翻译参数：[语言代码, off] \n\n1. 语言代码遵循 Google Translate Languages Codes, 当填入 off 时关闭翻译\n2. 开启调试模式用于输出更多日志
+
+[Script]
+http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch|log_event|config))(\?(.*))?$ script-path=https://cdn.jsdelivr.net/gh/Maasea/sgmodule@master/Script/Youtube/youtube.response.js, requires-body=true, binary-body-mode=true, argument="{"captionLang":"{{{字幕翻译语言}}}","blockUpload":{{{屏蔽上传按钮}}},"blockImmersive":{{{屏蔽选段按钮}}},"blockShorts":{{{屏蔽Shorts按钮}}},"debug":{{{启用调试模式}}}}", tag=youtube.response, enabled=true
+http-request ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&ack.* script-path=https://cdn.jsdelivr.net/gh/Maasea/sgmodule@master/Script/Youtube/youtube.request.js, requires-body=true, binary-body-mode=true, argument="{"captionLang":"{{{字幕翻译语言}}}"}", tag=youtube.request.init, enabled=true
+http-request ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/log_event script-path=https://cdn.jsdelivr.net/gh/Maasea/sgmodule@master/Script/Youtube/youtube.request.js, requires-body=true, binary-body-mode=true, tag=youtube.request.log_event, enabled=true
+
+[MITM]
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com
