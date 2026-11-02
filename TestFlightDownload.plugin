@@ -1,0 +1,11 @@
+#!name=TestFlight直连
+#!desc=TestFlight 相关域名直连，解决开 Surge 时 TestFlight 无法加载/地区不可用问题
+#!category=工具
+
+[Rule]
+DOMAIN-SUFFIX,testflight.apple.com,DIRECT
+DOMAIN-SUFFIX,appstoreconnect.apple.com,DIRECT
+DOMAIN-SUFFIX,iosapps.itunes.apple.com,DIRECT
+DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+DOMAIN-SUFFIX,apps.apple.com,DIRECT
+DOMAIN-SUFFIX,appstore.apple.com,DIRECT
