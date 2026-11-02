@@ -7,7 +7,7 @@
 
 [Script]
 # Panel
-# TODO: 网络接口信息面板 = type=generic,timeout=120,script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/interface-info.js,argument="icon={{{ICON}}}&icon-color={{{ICON-COLOR}}}&STYLE={{{STYLE}}}"
+# TODO: 网络接口信息面板 = type=generic,timeout=120,script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/interface-info.js,argument="icon={{{ICON}}}&icon-color={{{ICON-COLOR}}}&STYLE={{{STYLE}}}"
 
 
 # [Panel] Loon panel 语法不同，需手动调整:

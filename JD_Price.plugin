@@ -6,9 +6,9 @@
 
 
 [Script]
-http-request (?i)^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/JD_Price.js, requires-body=true, timeout=10
+http-request (?i)^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/JD_Price.js, requires-body=true, timeout=10
 
-http-response (?i)^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/JD_Price.js, requires-body=true, timeout=10
+http-response (?i)^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/JD_Price.js, requires-body=true, timeout=10
 
 
 [Mitm]

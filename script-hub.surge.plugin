@@ -6,13 +6,13 @@
 
 
 [Script]
-http-request ^https?:\/\/script\.hub\/($|edit\/|reload) script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/script-hub.js, timeout=300
+http-request ^https?:\/\/script\.hub\/($|edit\/|reload) script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/script-hub.js, timeout=300
 
-http-request ^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module) script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/Rewrite-Parser.js, timeout=300, argument=Notify={{{Notify}}}
+http-request ^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module) script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/Rewrite-Parser.js, timeout=300, argument=Notify={{{Notify}}}
 
-http-request ^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/rule-parser.js, timeout=300, argument=Notify={{{Notify}}}
+http-request ^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/rule-parser.js, timeout=300, argument=Notify={{{Notify}}}
 
-http-request ^https?:\/\/script\.hub\/convert\/ script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/script-converter.js, timeout=300
+http-request ^https?:\/\/script\.hub\/convert\/ script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/script-converter.js, timeout=300
 
 
 [Mitm]
