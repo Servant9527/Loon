@@ -4,10 +4,8 @@
 #!category=功能解锁
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  pingtas.qq.com, c.pc.qq.com, cgi.connect.qq.com
-
 
 [Rewrite]
 (?i)^https:\/\/c\.pc\.qq\.com\/middlem\.html\?pfurl=(http.*)&pfuin=.* $1 307

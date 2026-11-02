@@ -4,7 +4,6 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Script]
 http-response (?i)^https:\/\/news\.app\.autohome\.com\.cn\/news_v\d+(?:\.\d+){2}\/news\/homenavigation script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/AutoHome_remove_ads.js, requires-body=true
 
@@ -18,47 +17,44 @@ http-response (?i)^https:\/\/(a\.athm\.cn\/)?cars\.app\.autohome\.com\.cn\/carst
 
 http-response (?i)^https:\/\/(a\.athm\.cn\/)?apiautoappusc\.che168\.com\/apic\/v\d+\/gethomepagefeed script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/AutoHome_remove_ads.js, requires-body=true
 
-
 [Mitm]
 hostname =  a.athm.cn, adproxy.autohome.com.cn, apiautoappusc.che168.com, autoapi.autohome.com.cn, cars.app.autohome.com.cn, clientlive.api.autohome.com.cn, club.app.autohome.com.cn, dealer.m.autohome.com.cn, maam.pingan.com.cn, mobile.app.autohome.com.cn, news.app.autohome.com.cn, pcmx.autohome.com.cn
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/findEquitysV5 data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/findEquitysV5 mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/mycardv6 data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/mycardv6 mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/chat\/gse\/recquery data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/chat\/gse\/recquery mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/autoapi\.autohome\.com\.cn\/ypttd\/yjc\/web\/mkgt\/act\/seckillInfo data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/autoapi\.autohome\.com\.cn\/ypttd\/yjc\/web\/mkgt\/act\/seckillInfo mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/gethotactcards data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/gethotactcards mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/extendedcards data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/extendedcards mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/getwashcarlist data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/getwashcarlist mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/getdealertab data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/getdealertab mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/getoillist data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/usercenter\/getoillist mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/pcmx\.autohome\.com\.cn\/queryCreativeList data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/pcmx\.autohome\.com\.cn\/queryCreativeList mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/maam\.pingan\.com\.cn\/maam\/buoy\/getBuoyList\.do data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/maam\.pingan\.com\.cn\/maam\/buoy\/getBuoyList\.do mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/news\.app\.autohome\.com\.cn\/cont_v\d+(?:\.\d+){2}\/api\/article\/extenddata data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/news\.app\.autohome\.com\.cn\/cont_v\d+(?:\.\d+){2}\/api\/article\/extenddata mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/adproxy\.autohome\.com\.cn\/AdvertiseService\/AppHandler\.ashx data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/adproxy\.autohome\.com\.cn\/AdvertiseService\/AppHandler\.ashx mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/club\.app\.autohome\.com\.cn\/club_v\d+(?:\.\d+){2}\/club\/channelqa\/header data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/club\.app\.autohome\.com\.cn\/club_v\d+(?:\.\d+){2}\/club\/channelqa\/header mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=super\.list data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=super\.list mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/autoapi\.autohome\.com\.cn\/arvr-dealercloud-api\/online\/aggregation\/exhibitionList data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/autoapi\.autohome\.com\.cn\/arvr-dealercloud-api\/online\/aggregation\/exhibitionList mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=vrcore\.list data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=vrcore\.list mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=platform\.search data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=platform\.search mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/a\.athm\.cn\/clientlive\.api\.autohome\.com\.cn\/api\/live\/getserieswindowsinfo data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/a\.athm\.cn\/clientlive\.api\.autohome\.com\.cn\/api\/live\/getserieswindowsinfo mock-response-body data-type=text data="{}" status-code=200

@@ -4,25 +4,21 @@
 #!category=顶部
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  appconf.mail.163.com, msglb.91160.com, ucdc2-upaas.uc.cn, gw-cn.jiaoliuqu.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/http\/urlConfig\.do$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/http\/urlConfig\.do$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https?:\/\/cdn\.wup\.huya\.com\/monitor\/monitor\.jsp data-type=text data="" status-code=404
+(?i)^https?:\/\/cdn\.wup\.huya\.com\/monitor\/monitor\.jsp mock-response-body data-type=text data="" status-code=404
 
-# MapLocal (需手动检查): (?i)^https:\/\/msglb\.91160\.com\/msg\/outer\/broker\/get$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/msglb\.91160\.com\/msg\/outer\/broker\/get$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/gslbali\.ximalaya\.com\/linkeye-cloud\/httpdns\/ data-type=text data="" status-code=404
+(?i)^https:\/\/gslbali\.ximalaya\.com\/linkeye-cloud\/httpdns\/ mock-response-body data-type=text data="" status-code=404
 
-# MapLocal (需手动检查): (?i)^https:\/\/ucdc\d?-upaas\.uc\.cn\/api\/v\d\/dns_query\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/ucdc\d?-upaas\.uc\.cn\/api\/v\d\/dns_query\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/gw-cn\.jiaoliuqu\.com\/taqu-im-broadcast-srv\/v\d\/Comet\/get\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/gw-cn\.jiaoliuqu\.com\/taqu-im-broadcast-srv\/v\d\/Comet\/get\? mock-response-body data-type=text data="{}" status-code=200
 
 [Rule]
 DOMAIN-KEYWORD,httpdns,REJECT

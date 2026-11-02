@@ -4,21 +4,16 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  ask.zhaopin.com, cgate.zhaopin.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ data-type=text data="" status-code=404
-
+(?i)^https:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ mock-response-body data-type=text data="" status-code=404
 
 [Rule]
 URL-REGEX,"^https:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/",REJECT
-
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
 (?i)^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? response-body-json-jq 'delpaths([["data","templates",0,"data","banner"]])'

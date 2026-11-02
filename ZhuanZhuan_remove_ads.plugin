@@ -4,33 +4,29 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  app.zhuanzhuan.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/getOpenScreen$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/getOpenScreen$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getwindvanecardv2$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getwindvanecardv2$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/popwindow\/getallpopwin\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/popwindow\/getallpopwin\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/zzbmlogic\/queryFrontPageWindowInfo\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/zzbmlogic\/queryFrontPageWindowInfo\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/ptuserlogic\/subscribehotrecommend$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/ptuserlogic\/subscribehotrecommend$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/ptsimpleshow\/recommendbymyloveinfo\? data-type=text data="{\"respCode\":0,\"errorMsg\":\"null\",\"errMsg\":\"\"}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/ptsimpleshow\/recommendbymyloveinfo\? mock-response-body data-type=text data="{\"respCode\":0,\"errorMsg\":\"null\",\"errMsg\":\"\"}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/footprintsamerecommend\? data-type=text data="{\"respCode\":0,\"errorMsg\":\"\",\"errMsg\":\"\"}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/footprintsamerecommend\? mock-response-body data-type=text data="{\"respCode\":0,\"errorMsg\":\"\",\"errMsg\":\"\"}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/ypmall\/listData$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zzopen\/ypmall\/listData$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzusercenter\/myprofilevariouscards$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzusercenter\/myprofilevariouscards$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos\? data-type=text data="{\"respCode\":0,\"respData\":{},\"errorMsg\":\"\",\"errMsg\":\"\"}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos\? mock-response-body data-type=text data="{\"respCode\":0,\"respData\":{},\"errorMsg\":\"\",\"errMsg\":\"\"}" status-code=200
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
 (?i)^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/mycontinenthomepage\? response-body-json-jq 'delpaths([["respData","topOpera","leftOpera"]])'

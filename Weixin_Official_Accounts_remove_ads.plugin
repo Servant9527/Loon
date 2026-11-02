@@ -4,17 +4,13 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  mp.weixin.qq.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword mock-response-body data-type=text data="{}" status-code=200
 
 [Rule]
 DOMAIN-SUFFIX,wxs.qq.com,REJECT

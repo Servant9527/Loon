@@ -4,21 +4,17 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  www.terabox.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/www\.terabox\.com\/adx\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/www\.terabox\.com\/adx\/ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/www\.terabox\.com\/api\/ad\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/www\.terabox\.com\/api\/ad\/ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/www\.terabox\.com\/api\/page\/tips\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/www\.terabox\.com\/api\/page\/tips\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/www\.terabox\.com\/rest\/1\.0\/task\/common\/inttips\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/www\.terabox\.com\/rest\/1\.0\/task\/common\/inttips\? mock-response-body data-type=text data="{}" status-code=200
 
 [Rule]
 DOMAIN,ymg-api.terabox.com,REJECT

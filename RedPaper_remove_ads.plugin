@@ -4,7 +4,6 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Script]
 http-response (?i)^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/note\/(?:imagefeed|live_photo\/save) script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/RedPaper_remove_ads.js, requires-body=true
 
@@ -30,27 +29,22 @@ http-response (?i)^https:\/\/(?:edith|so)\.xiaohongshu\.com\/api\/sns\/v10\/sear
 
 http-response (?i)^https:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/(?:v4\/note\/videofeed|v10\/note\/video\/save) script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/RedPaper_remove_ads.js, requires-body=true
 
-
 [Mitm]
 hostname =  ci.xiaohongshu.com, edith.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com, www.xiaohongshu.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/ci\.xiaohongshu\.com\/system_config\/watermark data-type=tiny-gif status-code=200
+(?i)^https:\/\/ci\.xiaohongshu\.com\/system_config\/watermark mock-response-body data-type=tiny-gif status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/surprisebox\/(?:get_style|open|submit_action) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/surprisebox\/(?:get_style|open|submit_action) mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/(?:v2\/guide\/user_banner|v3\/note\/guide) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/(?:v2\/guide\/user_banner|v3\/note\/guide) mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/www\.xiaohongshu\.com\/api\/sns\/(?:v1\/ads\/resource|v2\/hey\/\w+\/hey_gallery) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/www\.xiaohongshu\.com\/api\/sns\/(?:v1\/ads\/resource|v2\/hey\/\w+\/hey_gallery) mock-response-body data-type=text data="{}" status-code=200
 
 [Rule]
 AND,((PROTOCOL,QUIC),(DOMAIN-SUFFIX,xiaohongshu.com)),REJECT
-
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
 (?i)^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/search\/banner_list$ response-body-json-jq 'if ((getpath([]) // {}) | has("data")) then (setpath(["data"]; "{}")) else . end'

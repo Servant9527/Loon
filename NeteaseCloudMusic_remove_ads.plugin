@@ -6,7 +6,6 @@
 #!arguments=MY:true,DT:true,FX:true,PRGG:false,PRRK:false,PRDRD:false,PRSCVPT:false,PRST:false,PRRR:false,HMPR:false,PRMST:false,PRCN:false
 #!arguments-desc=MY: [隐藏底栏]漫游标签\n可选值: false, true\n\nDT: [隐藏底部]笔记标签\n可选值: false, true\n\nFX: [隐藏底部]发现标签\n可选值: false, true\n\nPRGG: [隐藏首页]问候语\n可选值: false, true\n\nPRRK: [隐藏首页]排行榜\n可选值: false, true\n\nPRDRD: [隐藏首页]每日推荐\n可选值: false, true\n\nPRSCVPT: [隐藏首页]推荐歌单\n可选值: false, true\n\nPRST: [隐藏首页]最近常听\n可选值: false, true\n\nPRRR: [隐藏首页]雷达歌单\n可选值: false, true\n\nHMPR: [隐藏首页]音乐合伙人\n可选值: false, true\n\nPRMST: [隐藏首页]推荐专属歌单\n可选值: false, true\n\nPRCN: [隐藏首页]你的专属歌单\n可选值: false, true
 
-
 [Script]
 http-response (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:batch|v2\/resource\/comment\/floor\/get) script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/NeteaseCloudMusic_remove_ads.js, requires-body=true, binary-body-mode=true, timeout=20
 http-response (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:homepage\/block\/page|link\/page\/rcmd\/(?:block\/resource\/multi\/refresh|resource\/show)) script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/NeteaseCloudMusic_remove_ads.js, requires-body=true, binary-body-mode=true, timeout=20, argument=PRGG="{{{PRGG}}}"&PRRK="{{{PRRK}}}"&PRDRD="{{{PRDRD}}}"&PRSCVPT="{{{PRSCVPT}}}"&PRST="{{{PRST}}}"&PRRR="{{{PRRR}}}"&HMPR="{{{HMPR}}}"&PRMST="{{{PRMST}}}"&PRCN="{{{PRCN}}}"
@@ -15,20 +14,17 @@ http-response (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/link\/page\/d
 http-response (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/link\/position\/show\/resource script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/NeteaseCloudMusic_remove_ads.js, requires-body=true, binary-body-mode=true, timeout=20
 http-response (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/user\/follow\/users\/mixed\/get script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/NeteaseCloudMusic_remove_ads.js, requires-body=true, binary-body-mode=true, timeout=20
 
-
 [Mitm]
 hostname =  interface*.music.163.com
 
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https?:\/\/interface\d?\.music\.163\.com\/e?api\/(ocpc\/)?ad\/ data-type=text data="" status-code=200 header="Content-Type:text/plain"
-# MapLocal (需手动检查): (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:delivery\/(batch-)?deliver|moment\/tab\/info\/|side-bar\/mini-program\/music-service\/account|yunbei\/account\/entrance\/) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# MapLocal (需手动检查): (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:community\/friends\/fans-group\/artist\/group\/|mine\/applet\/redpoint|music\/songshare\/text\/recommend\/|resniche\/position\/play\/new\/|resniche\/tspopup\/show|resource\/comments?\/musiciansaid\/|user\/sub\/artist) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# MapLocal (需手动检查): (?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:ios\/version|mlivestream\/entrance\/playpage\/|link\/position\/show\/strategy|link\/scene\/show\/resource|v1\/content\/exposure\/comment\/banner\/) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# MapLocal (需手动检查): (?i)^https?:\/\/interface\d?\.music\.163.com\/w?e?api\/search\/default data-type=text data="" status-code=200 header="Content-Type:text/plain"
-# MapLocal (需手动检查): (?i)^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|rcmd\/keyword\/|specialkeyword\/)) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# MapLocal (需手动检查): (?i)^https:\/\/interface\d\.music\.163\.com\/eapi\/my\/podcast\/tab\/recommend data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/e?api\/(ocpc\/)?ad\/ mock-response-body data-type=text data="" status-code=200
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:delivery\/(batch-)?deliver|moment\/tab\/info\/|side-bar\/mini-program\/music-service\/account|yunbei\/account\/entrance\/) mock-response-body data-type=text data="{}" status-code=200
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:community\/friends\/fans-group\/artist\/group\/|mine\/applet\/redpoint|music\/songshare\/text\/recommend\/|resniche\/position\/play\/new\/|resniche\/tspopup\/show|resource\/comments?\/musiciansaid\/|user\/sub\/artist) mock-response-body data-type=text data="{}" status-code=200
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/eapi\/(?:ios\/version|mlivestream\/entrance\/playpage\/|link\/position\/show\/strategy|link\/scene\/show\/resource|v1\/content\/exposure\/comment\/banner\/) mock-response-body data-type=text data="{}" status-code=200
+(?i)^https?:\/\/interface\d?\.music\.163.com\/w?e?api\/search\/default mock-response-body data-type=text data="" status-code=200
+(?i)^https?:\/\/interface\d?\.music\.163\.com\/w?eapi\/(?:activity\/bonus\/playpage\/time\/query|resource-exposure\/|search\/(?:chart\/|rcmd\/keyword\/|specialkeyword\/)) mock-response-body data-type=text data="{}" status-code=200
+(?i)^https:\/\/interface\d\.music\.163\.com\/eapi\/my\/podcast\/tab\/recommend mock-response-body data-type=text data="{}" status-code=200
 
 [Rule]
 DOMAIN,iadmat.nosdn.127.net,REJECT

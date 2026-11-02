@@ -4,23 +4,19 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  wallpaper-1258344696.file.myqcloud.com, amsweb-cdn-*-1258344696.file.myqcloud.com, wnsaviator.kg.qq.com, tmeadkg.y.qq.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/wallpaper-\d+\.file\.myqcloud\.com\/dsl\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/wallpaper-\d+\.file\.myqcloud\.com\/dsl\/ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https?:\/\/wallpaper-\d+\.file\.myqcloud\.com\/hikari\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https?:\/\/wallpaper-\d+\.file\.myqcloud\.com\/hikari\/ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/amsweb-cdn-\S+-\d+\.file\.myqcloud\.com\/video\/ad_profile\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/amsweb-cdn-\S+-\d+\.file\.myqcloud\.com\/video\/ad_profile\/ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/tmeadkg\.y\.qq\.com\/maproxy\/getAd$ data-type=text data="" status-code=404
+(?i)^https:\/\/tmeadkg\.y\.qq\.com\/maproxy\/getAd$ mock-response-body data-type=text data="" status-code=404
 
-# MapLocal (需手动检查): (?i)^https:\/\/wnsaviator\.kg\.qq\.com\/wnsaviator\/api\/v1\/transMerge\?_webcgikey=get_activity_entry$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/wnsaviator\.kg\.qq\.com\/wnsaviator\/api\/v1\/transMerge\?_webcgikey=get_activity_entry$ mock-response-body data-type=text data="{}" status-code=200
 
 [Rule]
 DOMAIN,adsmind.gdtimg.com,REJECT

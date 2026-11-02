@@ -1,11 +1,3 @@
 #!name=节假日信息
 #!desc=显示距离法定节假日还有几天，节日当天早上有提醒。
 #!category=面板
-
-
-[Script]
-# TODO: timecard = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/Servant9527/Loon/main/JS%20folder/timecard.js
-
-
-# [Panel] Loon panel 语法不同，需手动调整:
-# timecard = script-name=timecard,update-interval=3600

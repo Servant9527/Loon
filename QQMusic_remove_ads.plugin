@@ -4,7 +4,6 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Rule]
 DOMAIN,adstats.tencentmusic.com,REJECT
 DOMAIN,ad.tencentmusic.com,REJECT

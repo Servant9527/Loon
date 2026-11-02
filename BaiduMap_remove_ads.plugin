@@ -4,27 +4,23 @@
 #!category=去广告
 #!date=2026-10-02 13:57:49
 
-
 [Mitm]
 hostname =  afd.baidu.com, newclient.map.baidu.com, yongche.baidu.com, ecom.map.baidu.com
 
-
-
 [Rewrite]
-# MapLocal (需手动检查): (?i)^https:\/\/afd\.baidu\.com\/afd\/entry\?action=(update|query) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/afd\.baidu\.com\/afd\/entry\?action=(update|query) mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/yongche\.baidu\.com\/gomarketing\/api\/popup\/getentrancecordovaurl$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/yongche\.baidu\.com\/gomarketing\/api\/popup\/getentrancecordovaurl$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/cobuild\/pull\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/cobuild\/pull\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/operationgirdle$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/operationgirdle$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/baseinfo$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/yongche\.baidu\.com\/goorder\/passenger\/baseinfo$ mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/ecom\.map\.baidu\.com\/ad-ops\/afd\/popup\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+(?i)^https:\/\/ecom\.map\.baidu\.com\/ad-ops\/afd\/popup\? mock-response-body data-type=text data="{}" status-code=200
 
-# MapLocal (需手动检查): (?i)^https:\/\/maphotel\.baidu\.com\/hotel\/goextranet\/activity\/detail\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
+(?i)^https:\/\/maphotel\.baidu\.com\/hotel\/goextranet\/activity\/detail\? mock-response-body data-type=text data="{}" status-code=200
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
 (?i)^https:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content response-body-json-jq 'delpaths([["data"]])'
