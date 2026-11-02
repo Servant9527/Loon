@@ -1,0 +1,24 @@
+#!name=智联招聘去广告
+#!desc=移除开屏广告、弹窗、职位页面推广和各类横幅推广。
+#!icon=https://cdn.jsdelivr.net/gh/luestr/IconResource@main/App_icon/120px/ZhiLianZhaoPin.png
+#!category=去广告
+#!date=2026-10-02 13:57:49
+
+
+[Mitm]
+hostname =  ask.zhaopin.com, cgate.zhaopin.com
+
+
+
+[Rewrite]
+# MapLocal (需手动检查): (?i)^https:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+# MapLocal (需手动检查): (?i)^https:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ data-type=text data="" status-code=404
+
+
+[Rule]
+URL-REGEX,"^https:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/",REJECT
+
+
+# [Body Rewrite] Loon 无直接对应，需用脚本实现:
+# http-response-jq (?i)^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? 'delpaths([["data","templates",0,"data","banner"]])'

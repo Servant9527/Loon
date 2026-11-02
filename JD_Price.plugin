@@ -1,0 +1,15 @@
+#!name=京东比价
+#!desc=首次使用需安装慢慢买应用，之后点击进入[我的]页面以捕获Cookie，捕获成功后方可在商品详情页面查看比价内容。
+#!icon=https://cdn.jsdelivr.net/gh/luestr/IconResource@main/App_icon/120px/JD.png
+#!category=功能增强
+#!date=2026-10-02 13:57:49
+
+
+[Script]
+http-request (?i)^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/JD_Price.js, requires-body=true, timeout=10
+
+http-response (?i)^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html script-path=https://raw.githubusercontent.com/Servant9527/Surge/main/JS%20folder/JD_Price.js, requires-body=true, timeout=10
+
+
+[Mitm]
+hostname =  in.m.jd.com, apapia-sqk-weblogic.manmanbuy.com
