@@ -29,6 +29,6 @@ hostname =  appapi.51jobapp.com, cupid.51jobapp.com
 
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
-# http-response-jq (?i)^https:\/\/cupid\.51jobapp\.com\/open\/noauth\/recommend\/job-tab-dynamic\? 'delpaths([["resultbody","adsTabFeeds"]])'
-# http-response-jq (?i)^https:\/\/cupid\.51jobapp\.com\/open\/user-task\/user\/task\/ 'delpaths([["resultbody","availableTaskList"]])'
-# http-response-jq (?i)^https:\/\/cupid\.51jobapp\.com\/open\/tab\/good-job\/modules\? 'delpaths([["resultbody","bannerList"]])'
+(?i)^https:\/\/cupid\.51jobapp\.com\/open\/noauth\/recommend\/job-tab-dynamic\? response-body-json-jq 'delpaths([["resultbody","adsTabFeeds"]])'
+(?i)^https:\/\/cupid\.51jobapp\.com\/open\/user-task\/user\/task\/ response-body-json-jq 'delpaths([["resultbody","availableTaskList"]])'
+(?i)^https:\/\/cupid\.51jobapp\.com\/open\/tab\/good-job\/modules\? response-body-json-jq 'delpaths([["resultbody","bannerList"]])'

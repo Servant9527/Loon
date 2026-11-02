@@ -19,9 +19,9 @@ hostname =  apps.api.ke.com
 
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
-# http-response-jq (?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? 'delpaths([["data","bootpage"]])'
-# http-response-jq (?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? 'delpaths([["data","bottom_bar_activity"]])'
-# http-response-jq (?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? 'delpaths([["data","islandModule"]])'
-# http-response-jq (?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? 'del(.data.mainIcons.list[] | select(.indexKey == "coupon"))'
-# http-response-jq (?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/myhome\/pagedetail\? '.data.moduleList |= map(select(.tab != "myHomeDecorV4"))'
-# http-response-jq (?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/feed\? '.data.list |= map(select(.cardType == "houseContainer" or .cardType == "houseV2" or .cardType == "houseV3" or .cardType == "rentHouseDiscount" or .cardType == "decorationCase"))'
+(?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? response-body-json-jq 'delpaths([["data","bootpage"]])'
+(?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? response-body-json-jq 'delpaths([["data","bottom_bar_activity"]])'
+(?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? response-body-json-jq 'delpaths([["data","islandModule"]])'
+(?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? response-body-json-jq 'del(.data.mainIcons.list[] | select(.indexKey == "coupon"))'
+(?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/myhome\/pagedetail\? response-body-json-jq '.data.moduleList |= map(select(.tab != "myHomeDecorV4"))'
+(?i)^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/feed\? response-body-json-jq '.data.list |= map(select(.cardType == "houseContainer" or .cardType == "houseV2" or .cardType == "houseV3" or .cardType == "rentHouseDiscount" or .cardType == "decorationCase"))'

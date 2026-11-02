@@ -201,4 +201,4 @@ DOMAIN,open-pixon.ads-pixiv.net,REJECT
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
 # http-response (?i)^https?:\/\/cmds\.omesoft\.com\/HypnotistWS\.asmx "<GetADResult>\\.\\*\\?<\\/GetADResult>" "<GetADResult>{\"ret\":0,\"msg\":\"正常\",\"err_code\":0,\"data\":{\"ad\":[]}}</GetADResult>"
-# http-response-jq (?i)^https?:\/\/api\.fenxianglife\.com\/njia\/index\/popup\/v2 '.data.list=[]'
+(?i)^https?:\/\/api\.fenxianglife\.com\/njia\/index\/popup\/v2 response-body-json-jq '.data.list=[]'

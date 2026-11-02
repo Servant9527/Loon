@@ -21,4 +21,4 @@ URL-REGEX,"^https:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/",REJECT
 
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
-# http-response-jq (?i)^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? 'delpaths([["data","templates",0,"data","banner"]])'
+(?i)^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? response-body-json-jq 'delpaths([["data","templates",0,"data","banner"]])'

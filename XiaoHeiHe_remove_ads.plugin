@@ -15,4 +15,4 @@ hostname =  api.xiaoheihe.cn
 
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
-# http-response-jq (?i)^https:\/\/api\.xiaoheihe\.cn\/bbs\/app\/feeds\/news '.result.links |= map(if .content_type == 27 then del(.title, .ad_pm, .img_gif, .idea_id, .ad_report, .label, .source, .intranet_only, .ad_cm, .content_type, .PROTOCOL, .img, .ad_ratio) else . end)'
+(?i)^https:\/\/api\.xiaoheihe\.cn\/bbs\/app\/feeds\/news response-body-json-jq '.result.links |= map(if .content_type == 27 then del(.title, .ad_pm, .img_gif, .idea_id, .ad_report, .label, .source, .intranet_only, .ad_cm, .content_type, .PROTOCOL, .img, .ad_ratio) else . end)'

@@ -27,11 +27,11 @@ hostname =  afd.baidu.com, newclient.map.baidu.com, yongche.baidu.com, ecom.map.
 
 
 # [Body Rewrite] Loon 无直接对应，需用脚本实现:
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content 'delpaths([["data"]])'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/client\/noticebar\/get\? 'delpaths([["content","multi_data"]])'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/(client\/)?usersystem\/mine\/page\? 'if ((getpath([]) // {}) | has("data")) then (setpath(["data"]; "{}")) else . end'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads&type=user_home_new_service 'delpaths([["ads"]])'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",1]])'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",4]])'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",5]])'
-# http-response-jq (?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",9]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content response-body-json-jq 'delpaths([["data"]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/client\/noticebar\/get\? response-body-json-jq 'delpaths([["content","multi_data"]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/(client\/)?usersystem\/mine\/page\? response-body-json-jq 'if ((getpath([]) // {}) | has("data")) then (setpath(["data"]; "{}")) else . end'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads&type=user_home_new_service response-body-json-jq 'delpaths([["ads"]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? response-body-json-jq 'delpaths([["Result","cards",1]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? response-body-json-jq 'delpaths([["Result","cards",4]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? response-body-json-jq 'delpaths([["Result","cards",5]])'
+(?i)^https:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? response-body-json-jq 'delpaths([["Result","cards",9]])'
