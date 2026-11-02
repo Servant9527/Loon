@@ -1,3 +1,0 @@
-#!name=VPS流量监控
-#!desc=显示VPS本月上下行流量, 数据每2分钟更新, LA01主/CN01备
-#!category=面板
